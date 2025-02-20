@@ -1,0 +1,73 @@
+FrontEnd -> React Framework (Javascript)  (Visual Studio Code - VSC)
+Backend -> Spring Boot (REST API)
+Database -> H2 (MySQL)
+Authentication -> Spring Security (JWT)
+
+
+
+Instalar Node.js (https://nodejs.ord) junto NPM utilizando Windows Installer
+Comprobar las versiones instaladas:
+- abrir cmd (consola windows)
+- node --version
+- npm --version
+
+Crear un directorio con el nombre del proyecto (todo_app)
+Abrir el CMD e ir a ese directorio (cd C:\Users\Carlos.Villarreal\Documents\todo_app)
+npm init
+package name: todo-npm-project
+Esto crea un .json el directorio que recoge la información introducida
+
+Instalar tambien JQUERY
+npm install jquery
+
+Dentro del directorio original (todo_app) crear otro directorio: Frontend y acceder a él desde la terminal (cd Frontend)
+
+Crear la aplicación React:
+
+npx create-react-app todo-app
+
+Esto crea dentro del directorio Frontend un nuevo directorio (todo-app). Acceder a él desde la terminal (cd todo-app) y npm start
+Esto arranca el servidor de React y se abrirá la página del navegador que mostrará el logo de React dando vueltas sobre fondo negro.
+Cualquier cambio que ejecutes en la aplicación se verá automáticamente en el navegador.
+Esto mismo se puede hacer desde VSC: desde el menú de la parte superior Terminal -> New Terminal -> ruta completa cd C:\Users\Carlos.Villarreal\Documents\todo_app\Frontend\todo-app
+y npm start.
+Para parar el servidor, ejecutar dos veces ctrl+c
+
+Dentro del directorio "public" está el archivo index.html donde puedes por ejemplo canmbiar el título que se muestra en la pestaña del navegador (cambiando la etiqueta title)
+
+Instalar react-router
+
+npm install react-router-dom
+
+Bootstrap:
+
+npm install bootstrap
+
+Ir a node_modules y buscar bootstrap -> dist -> css -> bootstrap.min.css y copiar el path.
+Ir a index.js e importar bootstrap copiando el path copiado -> import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+
+Todo REST API
+
+CRUD
+
+Devolver todos los TODOS
+Devover un Todo
+Eliminar un TODO
+Updatear un TODO
+Crear un TODO
+
+Importar el proyecto (MAVEN) desde Eclipse o Intellij
+
+Instalar axios
+
+npm install axios
+
+Ojo: los errores en las llamadas puede deberse a CORS (habilitar @CrossOrigins en el controller)
+
+TODO RestApi
+
+- Devolver todos los Todos: @GetMapping("/users/{usernamne}/todos")
+- Devolver 1 TODO: @GetMapping("/users/{username}/todos/{id}")
