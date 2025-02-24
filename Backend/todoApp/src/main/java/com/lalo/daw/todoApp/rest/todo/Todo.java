@@ -4,11 +4,14 @@ import java.time.LocalDate;
 
 public class Todo {
 
+    public enum DoneStatus {
+        SI, No
+    }
     public Todo() {
 
     }
 
-    public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
+    public Todo(int id, String username, String description, LocalDate targetDate, DoneStatus done) {
         super();
         this.id = id;
         this.username = username;
@@ -23,7 +26,8 @@ public class Todo {
 
     private String description;
     private LocalDate targetDate;
-    private boolean done;
+    //private boolean done;
+    private DoneStatus done;
 
     public int getId() {
         return id;
@@ -57,11 +61,19 @@ public class Todo {
         this.targetDate = targetDate;
     }
 
-    public boolean isDone() {
+    //public boolean getDone() {
+    //    return done;
+    //}
+
+    //public void setDone(boolean done) {
+    //    this.done = done;
+    //}
+
+    public DoneStatus getDone() {
         return done;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(DoneStatus done) {
         this.done = done;
     }
 

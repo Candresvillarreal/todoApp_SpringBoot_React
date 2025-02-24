@@ -11,6 +11,7 @@ export function TodoComponent() {
 
     const [description, setDescription] = useState('');
     const [targetDate, setTargetDate] = useState('');
+    const [done, setDone] = useState('');
 
     const authContext = useAuth();
     const navigate = useNavigate();
@@ -24,6 +25,7 @@ export function TodoComponent() {
             //console.log(response)
             .then(response => {
                 setDescription(response.data.description)
+                setDone(response.data.done)
                 setTargetDate(response.data.targetDate)
             })
             .catch(error => console.log(error));
@@ -37,7 +39,7 @@ export function TodoComponent() {
             username: username,
             description: values.description,
             targetDate: values.targetDate,
-            done: false
+            done: values.done
         }
         console.log(todo);
         if(id==-1) {
@@ -100,6 +102,13 @@ export function TodoComponent() {
                             <fieldset className="form-group">
                                 <label>Descripción</label>
                                 <Field className="form-control" name="description"></Field>
+                            </fieldset>
+                            <fieldset className="form-group">
+                                <label>¿Completado?</label>
+                                <Field as="select" className="form-control" name="done">
+                                    <option value="NO">NO</option>
+                                    <option value="SI">SI</option>
+                                </Field>
                             </fieldset>
                             <fieldset className="form-group">
                                 <label>Fecha Prevista</label>

@@ -1,5 +1,6 @@
 package com.lalo.daw.todoApp.rest.todo;
 
+import com.lalo.daw.todoApp.rest.todo.Todo.DoneStatus;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +16,13 @@ public class TodoService {
 
     static {
         todos.add(new Todo(++todosCount, "Carlos","Get AWS Certified",
-                LocalDate.now().plusYears(10), false ));
+                LocalDate.now().plusYears(10), DoneStatus.No));
         todos.add(new Todo(++todosCount, "Carlos","Learn DevOps",
-                LocalDate.now().plusYears(11), false ));
+                LocalDate.now().plusYears(11), DoneStatus.No));
         todos.add(new Todo(++todosCount, "Carlos","Learn Full Stack Development",
-                LocalDate.now().plusYears(12), false ));
+                LocalDate.now().plusYears(12), DoneStatus.No));
         todos.add(new Todo(++todosCount, "Carlos","Learn Full Stack Development",
-                LocalDate.now().plusYears(12), false ));
+                LocalDate.now().plusYears(12), DoneStatus.No ));
     }
 
     //Metodo para devolver todos los todos de un ususario
@@ -31,7 +32,7 @@ public class TodoService {
         return todos.stream().filter(predicate).toList();
     }
 
-    public Todo addTodo(String username, String description, LocalDate targetDate, boolean done) {
+    public Todo addTodo(String username, String description, LocalDate targetDate, DoneStatus done) {
         Todo todo = new Todo(++todosCount,username,description,targetDate,done);
         todos.add(todo);
         return todo;
