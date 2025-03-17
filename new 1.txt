@@ -67,7 +67,85 @@ npm install axios
 
 Ojo: los errores en las llamadas puede deberse a CORS (habilitar @CrossOrigins en el controller)
 
-TODO RestApi
+TODO RestApi - Postman Collection Requests
 
-- Devolver todos los Todos: @GetMapping("/users/{usernamne}/todos")
-- Devolver 1 TODO: @GetMapping("/users/{username}/todos/{id}")
+- Devolver todos los Todos: @GetMapping("/users/{usernamne}/todos")  -> Postman: GetAllTodos -> http://localhost:8080/users/Carlos/todos -> (http://localhost:8080/users/{user}/todos)
+- Devolver 1 TODO: @GetMapping("/users/{username}/todos/{id}") -> Postman: GetTodoById -> http://localhost:8080/users/Carlos/todos/4 ->  (http://localhost:8080/users/{user}/todos/{id})
+- Eliminar 1 TODO: @DeleteMapping("/users/{username}/todos/{id}") -> Postman: DeleteTodoById -> http://localhost:8080/users/Carlos/todos/4  -> (http://localhost:8080/users/{user}/todos/{id})
+
+
+Instalar formik (para gestionar formularios)
+
+npm install formik
+npm install moment
+
+Habilitar Spring Security
+Añadir en el pom.xml
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+Al reiniciar Spring, se genera en la consola un "security password" : Using generated security password: 83621988-47c6-4a83-b86a-28d82aebe23c
+Personalización: ir a application.properties y añadir el usuario y contraseña:
+spring.security.user.name=Carlos
+spring.security.user.password=dummy
+En postman hay que añadir en Authorization -> Auth Type -> Basic Authorization y añadir el usuario y la contraseña
+
+Para el Frontend, lanzar una request utilizando Postman (por ejemplo la request para crear un todo, y una vez ejecutada, comprobar los Headers.  Localizar el value del Authorization
+
+//.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+ 
+.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
+
+Basic Q2FybG9zOmR1bW15
+
+322
+
+public enum DoneStatus {
+    SI, NO
+}
+
+private DoneStatus done;
+
+public DoneStatus isDone() {
+	return done;
+}
+
+public void setDone(DoneStatus done) {
+	this.done = done;
+}
+
+También se puede hacer como un string
+
+H2 Database (BBDD en memoria)
+
+application.properties -> spring.h2.console.enabled=true
+
+En el pom.xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
+</dependency>
+
+
+Base Datos MySQL -> MariaDb
+
+user: root
+password: 
+
+bbdd: todo_prueba
+
+consultar el orden de los campos en la tabla todo:
+SELECT * FROM `todo`;
+El orden es: done, id, target_date, description, username
+Insertar los datos en ese orden respetando como están escritos los campos en Mysql (alguno puede ser distinto a como está escrito en Spring boot).
+Copiar la sentencias SQL en el arhivo data.sql (en Resources)
+
+

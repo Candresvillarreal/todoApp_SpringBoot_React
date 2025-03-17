@@ -46,7 +46,7 @@ export default function AuthProvider( { children}) {
                 setToken(basicAuthToken);   
                 //Añadir el token a todas las peticiones 
                 apiClient.interceptors.request.use( config => {
-                    console.log("Intecepting and adding a token");
+                    console.log("Intercepting and adding a token");
                     config.headers.Authorization = basicAuthToken;
                     return config;
                 });

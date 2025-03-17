@@ -76,51 +76,61 @@ export function TodoComponent() {
     }
 
     return(
-        <div className="container">
-            <h1>Introduce los detalles</h1>
-            <div>
-                <Formik initialValues= { {description, targetDate} }
-                    enableReinitialize={true}
-                    onSubmit = { onSubmit } 
-                    validate= { validate }
-                    validateOnChange= { false }                     //La validación sólo se hace al pulsar el botón de submit
-                    validateOnBlur= { false }
-                >
-                {
-                    (props) => (
-                        <Form>
-                            <ErrorMessage
-                                name="description"
-                                component="div"
-                                className="alert alert-warning"
-                            />
-                            <ErrorMessage
-                                name="targetDate"
-                                component="div"
-                                className="alert alert-warning"
-                            />
-                            <fieldset className="form-group">
-                                <label>Descripción</label>
-                                <Field className="form-control" name="description"></Field>
-                            </fieldset>
-                            <fieldset className="form-group">
-                                <label>¿Completado?</label>
-                                <Field as="select" className="form-control" name="done">
-                                    <option value="NO">NO</option>
-                                    <option value="SI">SI</option>
-                                </Field>
-                            </fieldset>
-                            <fieldset className="form-group">
-                                <label>Fecha Prevista</label>
-                                <Field className="form-control" name="targetDate"></Field>
-                            </fieldset>
-                            <div>
-                                <button className="btn btn-success m-5" type="submit">Save</button>
-                            </div>
-                        </Form>
-                    )
-                }
-                </Formik>
+        <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ width: '33%' }}>
+                <h1>Introduce los detalles</h1>
+                <div>
+                    <Formik initialValues= { {description, targetDate} }
+                        enableReinitialize={true}
+                        onSubmit = { onSubmit } 
+                        validate= { validate }
+                        validateOnChange= { false }                     //La validación sólo se hace al pulsar el botón de submit
+                        validateOnBlur= { false }
+                    >
+                    {
+                        (props) => (
+                            <Form>
+                                <ErrorMessage
+                                    name="description"
+                                    component="div"
+                                    className="alert alert-warning"
+                                />
+                                <ErrorMessage
+                                    name="targetDate"
+                                    component="div"
+                                    className="alert alert-warning"
+                                />
+                                <fieldset className="form-group">
+                                    <label><strong>Descripción</strong></label>
+                                    <Field className="form-control" name="description"></Field>
+                                </fieldset>
+                                <fieldset className="form-group">
+                                    <label><strong>¿Completado?</strong></label>
+                                    <Field as="select" className="form-control" name="done">
+                                        <option value="NO">NO</option>
+                                        <option value="SI">SI</option>
+                                    </Field>
+                                </fieldset>
+                                <fieldset className="form-group">
+                                    <label><strong>Fecha Prevista</strong></label>
+                                    <Field name="targetDate">
+                                        {({ field }) => (
+                                            <input
+                                                type="date"
+                                                {...field}
+                                                className="form-control"
+                                            />
+                                        )}
+                                    </Field>
+                                </fieldset>
+                                <div>
+                                    <button className="btn btn-success m-5" type="submit">Save</button>
+                                </div>
+                            </Form>
+                        )
+                    }
+                    </Formik>
+                </div>
             </div>
         </div>
     )

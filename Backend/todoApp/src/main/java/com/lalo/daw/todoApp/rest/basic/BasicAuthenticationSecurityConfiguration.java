@@ -1,5 +1,7 @@
 package com.lalo.daw.todoApp.rest.basic;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest.H2ConsoleRequestMatcher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -16,7 +18,7 @@ public class BasicAuthenticationSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return
                 http.authorizeHttpRequests(auth ->
-                                auth
+                        auth
                                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                                         .anyRequest().authenticated())
                         .httpBasic(Customizer.withDefaults())

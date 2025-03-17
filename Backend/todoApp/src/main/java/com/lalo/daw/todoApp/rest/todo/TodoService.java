@@ -14,16 +14,18 @@ public class TodoService {
 
     private static int todosCount = 0;
 
+    /*
     static {
         todos.add(new Todo(++todosCount, "Carlos","Get AWS Certified",
-                LocalDate.now().plusYears(10), DoneStatus.No));
+                LocalDate.now().plusYears(10), DoneStatus.NO));
         todos.add(new Todo(++todosCount, "Carlos","Learn DevOps",
-                LocalDate.now().plusYears(11), DoneStatus.No));
+                LocalDate.now().plusYears(11), DoneStatus.NO));
         todos.add(new Todo(++todosCount, "Carlos","Learn Full Stack Development",
-                LocalDate.now().plusYears(12), DoneStatus.No));
+                LocalDate.now().plusYears(12),DoneStatus.NO));
         todos.add(new Todo(++todosCount, "Carlos","Learn Full Stack Development",
-                LocalDate.now().plusYears(12), DoneStatus.No ));
+                LocalDate.now().plusYears(12), DoneStatus.NO));
     }
+     */
 
     //Metodo para devolver todos los todos de un ususario
     public List<Todo> findByUsername(String username){

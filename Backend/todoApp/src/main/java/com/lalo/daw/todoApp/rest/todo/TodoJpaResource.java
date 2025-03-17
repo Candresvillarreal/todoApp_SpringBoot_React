@@ -1,5 +1,6 @@
 package com.lalo.daw.todoApp.rest.todo;
 
+import com.lalo.daw.todoApp.rest.todo.repository.TodoRepository;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,37 +12,41 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-//@RestController  //Comentado porque voy a utilizar TodoJpaResource en su lugar
+@RestController
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-public class TodoResource {
+public class TodoJpaResource {
 
     private TodoService todoService;
+    private TodoRepository todoRepository;
 
-    public TodoResource(TodoService todoService){
+    public TodoJpaResource(TodoService todoService, TodoRepository todoRepository){
         this.todoService = todoService;
+        this.todoRepository = todoRepository;
     }
     // Obtener todos los todos de un usuario
     @GetMapping("/users/{username}/todos")
     public List<Todo> retrieveTodos(@PathVariable String username) {
-        return todoService.findByUsername(username);
+
+        return todoRepository.findByUsername(username);
     }
 
     // Obtener un todo filtrando por el usuario y su id
     @GetMapping("/users/{username}/todos/{id}")
     public Todo retrieveTodo(@PathVariable String username, @PathVariable int id){
-        return todoService.findById(id);
+
+        return todoRepository.findById(id).get();
     }
 
     // Eliminar un todo filtrando por el usuario y su id
     @DeleteMapping("/users/{username}/todos/{id}")
     public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable int id){
-        todoService.deleteById(id);
+        todoRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/users/{username}/todos/{id}")
     public Todo updateTodo(@PathVariable String username, @PathVariable int id,@RequestBody Todo todo){
-        todoService.updateTodo(todo);
+        todoRepository.save(todo);
         return todo;
     }
 

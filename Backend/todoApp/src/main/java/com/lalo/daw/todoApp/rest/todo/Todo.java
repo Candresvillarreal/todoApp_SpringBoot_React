@@ -1,12 +1,20 @@
 package com.lalo.daw.todoApp.rest.todo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import java.time.LocalDate;
 
+@Entity
 public class Todo {
 
     public enum DoneStatus {
-        SI, No
+        SI, NO
     }
+
+
     public Todo() {
 
     }
@@ -20,6 +28,8 @@ public class Todo {
         this.done = done;
     }
 
+    @Id
+    @GeneratedValue
     private int id;
 
     private String username;
@@ -27,7 +37,9 @@ public class Todo {
     private String description;
     private LocalDate targetDate;
     //private boolean done;
+    @Enumerated(EnumType.STRING)
     private DoneStatus done;
+    //private String done;
 
     public int getId() {
         return id;
@@ -60,7 +72,14 @@ public class Todo {
     public void setTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
     }
-
+    /*
+    public String getDone(){
+        return done;
+    }
+    public void setDone(String done) {
+        this.done = done;
+    }
+    */
     //public boolean getDone() {
     //    return done;
     //}
@@ -74,7 +93,7 @@ public class Todo {
     }
 
     public void setDone(DoneStatus done) {
-        this.done = done;
+       this.done = done;
     }
 
     @Override
