@@ -30,22 +30,33 @@ function LoginComponent() {
     }
 
     return (
-        <div className="Login">
-            <h1>Login</h1>
-            <br/>
-            {showErrorMessage && <div className="errorMessage">Los datos introducidos no son correctos</div>}
-            <br/>
-            <div className="LoginForm">
-                <div>
-                    <label>Usuario:</label>
-                    <input type="text" name="username" value={username} onChange={handleUserNameChange}/>
-                </div>
-                <div>
-                    <label>Contraseña:</label>
-                    <input type="password" name="password" value={password} onChange={handlePasswordChange}/>
-                </div>
-                <div>
-                    <button type="button" name="login" onClick={handleLoginSubmit}>Login</button>
+        <div className="Login d-flex justify-content-center">
+            <div style={{ width: '33%' }}>
+                <h1>Introduce tus datos:</h1>
+                <br/>
+                <br/>
+                {showErrorMessage && <div className="errorMessage">Los datos introducidos no son correctos</div>}
+                <br/>
+                <div className="LoginForm">
+                    <div className="mb-4 d-flex align-items-center">
+                        {/* <label className="fw-bold me-4">Usuario:</label>
+                        <input type="text" className="form-control" style={{ borderWidth: "2px", borderColor: "black" }} name="username" value={username} onChange={handleUserNameChange}/> */}
+                        <div class="input-group-prepend">
+                            <span className="input-group-text fw-bold text-white" style={{ borderWith: "1px", borderColor: "black", backgroundColor: "rgb(13, 110, 253)" }} id="user">Usuario</span>
+                        </div>
+                        <input type="text" className="form-control" style={{ borderWith: "1px", borderColor: "black" }} placeholder="Usuario" aria-label="Usaurio" aria-describedby="user" value={username} onChange={handleUserNameChange} />
+                    </div>
+                    <div className="mb-4 d-flex align-items-center">
+                        {/* <label className="fw-bold me-2">Contraseña:</label>
+                        <input type="password" className="form-control" style={{ borderWidth: "2px", borderColor: "black" }}  name="password" value={password} onChange={handlePasswordChange}/> */}
+                        <input type="password" className="form-control" style={{ borderWidth: "1px", borderColor: "black" }}  placeholder="Introduce tu contraseña" aria-label="Usuario" aria-describedby="password" value={password} onChange={handlePasswordChange}/>
+                        <div class="input-group-append">
+                            <span className="input-group-text fw-bold text-white" style={{ borderWith: "1px", borderColor: "black", backgroundColor: "rgb(13, 110, 253)" }} id="password">Password</span>
+                        </div>
+                    </div>
+                    <div className="d-grid gap-2 col-12 mx-auto">
+                        <button type="button" className="btn btn-primary btn-lg fw-bold" name="login" onClick={handleLoginSubmit}>Login</button>
+                    </div>
                 </div>
             </div>
         </div>

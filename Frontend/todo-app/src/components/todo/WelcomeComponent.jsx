@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import { retrieveHelloWorldBean, retrieveHelloWorldPathVariable } from './api/HelloWorldApiService';
@@ -13,6 +13,8 @@ function WelcomeComponent() {
     const [message, setMessage] = useState(null);
 
     const authContext = useAuth();
+
+    const navigate = useNavigate();
 
     function callHelloWorldApi() {
         console.log("called");
@@ -46,16 +48,18 @@ function WelcomeComponent() {
         console.log(error);
     }
 
+    function reachMyTodos() {
+        navigate(`/todos`);
+    }
+
     return (
         <div className="Welcome">
             <h1>Bienvenido {username}</h1>
+            <br/>
             <div>
-                Aquí están tus TODOS - <Link to="/todos">Haz click aquí</Link>
+                <p>¿Quieres gestionar tus tareas?</p>
+                <button className="btn btn-success m-5" onClick={() => reachMyTodos()}>Ver mis Tareas</button>
             </div>
-            <div>
-                <button className="btn btn-success m-5" onClick={ callHelloWorldApi } >Call Hello World</button>
-            </div>
-            <div className="text-info">{ message }</div>
         </div>
     )
 }
