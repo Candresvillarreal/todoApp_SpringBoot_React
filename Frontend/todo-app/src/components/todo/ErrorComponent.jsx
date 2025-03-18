@@ -1,9 +1,9 @@
 function ErrorComponent() {
     return (
         <div className="Error">
-            <h1>Uppps! Algo no ha ido bien.</h1>
+            <h1>¡¡ Uppps !! Algo no ha ido bien.</h1>
             <div>
-                Prueba otra vez o contacta con nosotros.
+                <h3>Prueba otra vez o contacta con nosotros.</h3>
             </div>
         </div>
     )

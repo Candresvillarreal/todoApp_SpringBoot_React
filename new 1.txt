@@ -69,10 +69,11 @@ Ojo: los errores en las llamadas puede deberse a CORS (habilitar @CrossOrigins e
 
 TODO RestApi - Postman Collection Requests
 
-- Devolver todos los Todos: @GetMapping("/users/{usernamne}/todos")  -> Postman: GetAllTodos -> http://localhost:8080/users/Carlos/todos -> (http://localhost:8080/users/{user}/todos)
-- Devolver 1 TODO: @GetMapping("/users/{username}/todos/{id}") -> Postman: GetTodoById -> http://localhost:8080/users/Carlos/todos/4 ->  (http://localhost:8080/users/{user}/todos/{id})
-- Eliminar 1 TODO: @DeleteMapping("/users/{username}/todos/{id}") -> Postman: DeleteTodoById -> http://localhost:8080/users/Carlos/todos/4  -> (http://localhost:8080/users/{user}/todos/{id})
-
+- Devolver todos los Todos: @GetMapping("/users/{usernamne}/todos")  -> Postman: GET -> GetAllTodos -> http://localhost:8080/users/Carlos/todos -> (http://localhost:8080/users/{user}/todos)
+- Devolver 1 TODO: @GetMapping("/users/{username}/todos/{id}") -> Postman: GET -> GetTodoById -> http://localhost:8080/users/Carlos/todos/4 ->  (http://localhost:8080/users/{user}/todos/{id})
+- Eliminar 1 TODO: @DeleteMapping("/users/{username}/todos/{id}") -> Postman: DEL -> DeleteTodoById -> http://localhost:8080/users/Carlos/todos/4  -> (http://localhost:8080/users/{user}/todos/{id})
+- Update 1 TODO:   @PutMapping("/users/{username}/todos/{id}")    -> Postman: PUT -> http://localhost:8080/users/Carlos/todos/4   -> http://localhost:8080/users/Carlos/todos/{id}
+- Crear 1 TODO:    @PostMapping("/users/{username}/todos")		  -> Postman: POST -> http://localhost:8080/users/Carlos/todos    -> http://localhost:8080/users/Carlos/todos
 
 Instalar formik (para gestionar formularios)
 
@@ -100,7 +101,7 @@ Para el Frontend, lanzar una request utilizando Postman (por ejemplo la request 
 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
 
-Basic Q2FybG9zOmR1bW15
+Basic Q2FybG9zOmR1bW15 (este es el valor que utilizo en el FrontEnd)
 
 322
 
@@ -147,5 +148,19 @@ SELECT * FROM `todo`;
 El orden es: done, id, target_date, description, username
 Insertar los datos en ese orden respetando como están escritos los campos en Mysql (alguno puede ser distinto a como está escrito en Spring boot).
 Copiar la sentencias SQL en el arhivo data.sql (en Resources)
+
+
+CAMBIOS
+
+Terminar el login:
+
+Meter los campos del formulario y el botón en un div, darle borde y un background color diferente (probar como queda)
+
+En los todos en el frontend:
+
+Probar con los botones de Borrar y Actulizar más largos
+
+En lugar de ¿Completado? indicar Estado y en lugar de SI y NO como opciones, cambiar el enum en el backend y en frontend para que puede
+escogerse entre COMPLETADO y PENDIENTE
 
 

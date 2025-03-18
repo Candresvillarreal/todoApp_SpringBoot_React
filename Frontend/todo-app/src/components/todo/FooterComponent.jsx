@@ -3,7 +3,7 @@ function FooterComponent() {
         <footer className="footer">
             <div className="container">
                 <hr/>
-                By Lalo
+                By Lalo 
             </div>
         </footer>
     )

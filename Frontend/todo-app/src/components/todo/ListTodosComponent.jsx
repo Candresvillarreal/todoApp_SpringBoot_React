@@ -62,9 +62,9 @@ function ListTodosComponent() {
 
     return (
         <div className="contaier">
-            <h1>TODO List</h1>
+            <h1>TODO´S List</h1>
             <div>
-                Aquí tiene tu lista de cosas que quieres (o debes) hacer
+                Aquí tienes la lista de cosas que quieres (o debes) hacer
             </div>
             <br/>
             {message && <div className="alert alert-warning">{message}</div>}
@@ -75,8 +75,8 @@ function ListTodosComponent() {
                             <th>Descripción</th>
                             <th>¿Completado?</th>
                             <th>Fecha Prevista</th>
-                            <th>Delete</th>
-                            <th>Update</th>
+                            <th>Borrar</th>
+                            <th>Actualizar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,8 +88,8 @@ function ListTodosComponent() {
                                     <td>{todo.done}</td>
                                     {/* <td>{todo.targetDate.toDateString()}</td> */}
                                     <td>{todo.targetDate.toString()}</td>
-                                    <td><button className="btn btn-warning" onClick={() => deleteTodo(todo.id)}>Delete</button></td>
-                                    <td><button className="btn btn-success" onClick={() => updateTodo(todo.id)}>Update</button></td>
+                                    <td><button className="btn btn-warning" onClick={() => deleteTodo(todo.id)}>Borrar</button></td>
+                                    <td><button className="btn btn-success" onClick={() => updateTodo(todo.id)}>Actualizar</button></td>
                                 </tr>
                             )
                         )
@@ -97,7 +97,7 @@ function ListTodosComponent() {
                     </tbody>
                 </table>
             </div>
-            <div className="btn btn-success m-5" onClick={addNewTodo}>Añadir Todo</div>
+            <div className="btn btn-success m-5" onClick={addNewTodo}>Añadir TODO</div>
         </div>
     )
 }
