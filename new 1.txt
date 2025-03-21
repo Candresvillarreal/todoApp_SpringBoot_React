@@ -158,6 +158,8 @@ Meter los campos del formulario y el botón en un div, darle borde y un backgrou
 
 En los todos en el frontend:
 
+Incluir los styles en el TodoApp.css (los que no son de bootstrap) como el width del login.... revisar los componentes
+
 Probar con los botones de Borrar y Actulizar más largos
 
 En lugar de ¿Completado? indicar Estado y en lugar de SI y NO como opciones, cambiar el enum en el backend y en frontend para que puede

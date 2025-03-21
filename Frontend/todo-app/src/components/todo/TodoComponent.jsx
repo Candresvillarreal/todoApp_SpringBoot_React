@@ -80,7 +80,7 @@ export function TodoComponent() {
             <div style={{ width: '33%' }}>
                 <h1>Introduce los detalles</h1>
                 <div>
-                    <Formik initialValues= { {description, targetDate} }
+                    <Formik initialValues= { {description, targetDate, done: ''} }
                         enableReinitialize={true}
                         onSubmit = { onSubmit } 
                         validate= { validate }
@@ -107,6 +107,7 @@ export function TodoComponent() {
                                 <fieldset className="form-group">
                                     <label><strong>¿Completado?</strong></label>
                                     <Field as="select" className="form-control" name="done">
+                                        <option value="">Seleccione una opción</option>
                                         <option value="NO">NO</option>
                                         <option value="SI">SI</option>
                                     </Field>

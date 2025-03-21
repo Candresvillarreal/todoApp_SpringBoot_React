@@ -4,15 +4,56 @@ label, input, button {
     align-items: center;
 }
 
+/*  Footer Styles   */
+
 footer {
     bottom: 0;
     position: absolute;
     width: 100%;
     height: 40px;
+    font-weight: bold;
 }
+
+/*  Error Message Styles   */
 
 .errorMessage {
     color: red;
     font-size: 16px;
     font-weight: bold;
+}
+
+/*  Login Component Styles  */
+
+.loginWidth {
+    width: 33%;
+}
+
+/*style={{ borderWith: "1px", borderColor: "black", backgroundColor: "rgb(13, 110, 253)" }}*/
+
+.inputNameTitle {
+    border-width: 1px;
+    border-color: black;
+    background-color: rgb(13, 110, 253);
+}
+
+/*style={{ borderWith: "1px", borderColor: "black" }}*/
+
+.inputNameBox {
+    border-width: 1px;
+    border-color: black;
+}
+
+/*style={{ borderWith: "1px", borderColor: "black", backgroundColor: "rgb(13, 110, 253)" }}*/
+
+.inputPasswordTitle {
+    border-width: 1px;
+    border-color: black;
+    background-color: rgb(13, 110, 253);
+}
+
+/*style={{ borderWidth: "1px", borderColor: "black" }}*/
+
+.inputPasswordBox {
+    border-width: 1px;
+    border-color: black;
 }

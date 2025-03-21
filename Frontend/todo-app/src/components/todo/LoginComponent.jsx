@@ -41,8 +41,8 @@ function LoginComponent() {
                     <div className="mb-4 d-flex align-items-center">
                         {/* <label className="fw-bold me-4">Usuario:</label>
                         <input type="text" className="form-control" style={{ borderWidth: "2px", borderColor: "black" }} name="username" value={username} onChange={handleUserNameChange}/> */}
-                        <div class="input-group-prepend">
-                            <span className="input-group-text fw-bold text-white" style={{ borderWith: "1px", borderColor: "black", backgroundColor: "rgb(13, 110, 253)" }} id="user">Usuario</span>
+                        <div className="input-group-prepend">
+                            <span className="input-group-text fw-bold text-white inputNameTitle" style={{ borderWith: "1px", borderColor: "black", backgroundColor: "rgb(13, 110, 253)" }} id="user">Usuario</span>
                         </div>
                         <input type="text" className="form-control" style={{ borderWith: "1px", borderColor: "black" }} placeholder="Usuario" aria-label="Usaurio" aria-describedby="user" value={username} onChange={handleUserNameChange} />
                     </div>
@@ -50,7 +50,7 @@ function LoginComponent() {
                         {/* <label className="fw-bold me-2">Contraseña:</label>
                         <input type="password" className="form-control" style={{ borderWidth: "2px", borderColor: "black" }}  name="password" value={password} onChange={handlePasswordChange}/> */}
                         <input type="password" className="form-control" style={{ borderWidth: "1px", borderColor: "black" }}  placeholder="Introduce tu contraseña" aria-label="Usuario" aria-describedby="password" value={password} onChange={handlePasswordChange}/>
-                        <div class="input-group-append">
+                        <div className="input-group-append">
                             <span className="input-group-text fw-bold text-white" style={{ borderWith: "1px", borderColor: "black", backgroundColor: "rgb(13, 110, 253)" }} id="password">Password</span>
                         </div>
                     </div>

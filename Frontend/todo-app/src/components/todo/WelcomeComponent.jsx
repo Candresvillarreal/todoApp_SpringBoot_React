@@ -58,7 +58,7 @@ function WelcomeComponent() {
             <br/>
             <div>
                 <p>¿Quieres gestionar tus tareas?</p>
-                <button className="btn btn-success m-5" onClick={() => reachMyTodos()}>Ver mis Tareas</button>
+                <button className="btn btn-success m-5" onClick={ () => reachMyTodos() }>Ver mis Tareas</button>
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
 package com.lalo.daw.todoApp.rest.todo;
 
+import com.lalo.daw.todoApp.rest.todo.Todo.DoneStatus;
 import com.lalo.daw.todoApp.rest.todo.repository.TodoRepository;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -45,15 +46,16 @@ public class TodoJpaResource {
     }
 
     @PutMapping("/users/{username}/todos/{id}")
-    public Todo updateTodo(@PathVariable String username, @PathVariable int id,@RequestBody Todo todo){
+    public Todo updateTodo(@PathVariable String username, @PathVariable int id, @RequestBody Todo todo){
         todoRepository.save(todo);
         return todo;
     }
 
     @PostMapping("/users/{username}/todos")
     public Todo createTodo(@PathVariable String username, @RequestBody Todo todo){
-        Todo createdTodo = todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), todo.getDone());
-        return createdTodo;
+        todo.setUsername((username));
+        todo.setId(null);
+        return todoRepository.save(todo);
     }
 
 
